@@ -1,0 +1,37 @@
+.Error-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+}
+
+.text-404 {
+  font-family: Montserrat;
+  font-size: 240px;
+  color: #ff6060;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.text {
+  font-family: Montserrat;
+  color: #ff6060;
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 119px;
+  margin-bottom: 0;
+}
+
+.link-home {
+  color: #000;
+
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 119px;
+}
