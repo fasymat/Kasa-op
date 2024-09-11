@@ -5,7 +5,7 @@ import DropdownList from "../components/DropdownList";
 import Footer from "../components/Footer";
 const About = () => {
   return (
-    <div>
+    <div className="content">
       <Navigation />
       <BannerAbout />
       <div className="dropdown-container">

@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Error from "../components/Error";
 const Error404 = () => {
   return (
-    <div>
+    <div className="content">
       <Navigation />
       <Error />
       <Footer />
