@@ -11,11 +11,19 @@ const DropdownList = ({ title, content }) => {
         <h3>{title}</h3>
         <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
       </div>
-      {isOpen && (
-        <div className="dropdown-content">
-          <p>{content}</p>
+      <div className={`dropdown-content ${isOpen ? "open" : ""}`}>
+        <div className="equipment-list">
+          {Array.isArray(content) ? (
+            content.map((item, index) => (
+              <div key={index} className="equipment-item">
+                {item}
+              </div>
+            ))
+          ) : (
+            <p>{content}</p>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };

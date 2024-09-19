@@ -1,40 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import cardsData from "../logements.json";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar, farStar } from "@fortawesome/free-solid-svg-icons";
+import DropdownList from "../components/DropdownList";
+import Error404 from "../pages/Error404";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 const LogementDetails = () => {
   const { id } = useParams();
-  const logement = cardsData.find((item) => item.id === id);
+  const [currentIndex, setCurrentIndex] = useState(
+    cardsData.findIndex((item) => item.id === id)
+  );
+  const logement = cardsData[currentIndex];
+
+  const handlePrev = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + cardsData.length) % cardsData.length
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % cardsData.length);
+  };
 
   if (!logement) {
-    return <div>Logement not found</div>;
+    return <Error404 />;
   }
   //renvoyer a la page si pas bon id
   return (
     <div className="content">
       <Navigation />
       <div className="logement-details">
-        <img
-          className="img-logement"
-          src={logement.cover}
-          alt={logement.title}
-        />
-        <h1>{logement.title}</h1>
-        <p>Location: {logement.location}</p>
-        <p>Host: {logement.host.name}</p>
-        <img className="host-picture" src={logement.host.picture} />
-        <p>Rating: {logement.rating}</p>
-        <h2>Description</h2>
-        <p>{logement.description}</p>
-        <h2>Equipments</h2>
-        <ul>
-          {logement.equipments.map((equipment, index) => (
-            <li key={index}>{equipment}</li>
-          ))}
-        </ul>
-        {/* Add more details as needed */}
+        <div className="img-logement">
+          <img
+            className="img-logement"
+            src={logement.cover}
+            alt={logement.title}
+          />
+          <button className="prev-btn" onClick={handlePrev}>
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
+          <button className="next-btn" onClick={handleNext}>
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
+        </div>
+        <div className="logement-info">
+          <div className="logement-title">
+            <h1 className="logement-name">{logement.title}</h1>
+            <p className="location">{logement.location}</p>
+            <div className="tags-container">
+              {logement.tags.map((tag, index) => (
+                <span key={index} className="tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="host-rating">
+            <div className="host-info">
+              <p className="host-name">
+                {logement.host.name.split(" ").map((namePart, index) => (
+                  <span key={index}>
+                    {namePart}
+                    <br />
+                  </span>
+                ))}
+              </p>
+              <img className="host-picture" src={logement.host.picture} />
+            </div>
+            <div className="rating">
+              {[...Array(5)].map((_, index) => (
+                <FontAwesomeIcon
+                  key={index}
+                  icon={index < logement.rating ? faStar : faStar}
+                  color={index < logement.rating ? "#FF6060" : "lightgray"}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="dropdown-container-logement">
+          <DropdownList title="Description" content={logement.description} />
+          <DropdownList title="Equipements" content={logement.equipments} />
+        </div>
       </div>
       <Footer />
     </div>

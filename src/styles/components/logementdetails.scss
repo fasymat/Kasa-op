@@ -3,3 +3,126 @@
   height: 415px;
   object-fit: cover;
 }
+
+.logement-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logement-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.host-rating {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.host-picture {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.host-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.logement-details {
+  width: 1240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+.logement-name {
+  color: #ff6060;
+  font-weight: 500;
+  font-family: Montserrat;
+  font-size: 36px;
+  margin-bottom: 0;
+}
+
+.location {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.tags {
+  color: #ff6060;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: Montserrat;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tags-container {
+  display: flex; /* Enables flexbox layout */
+  gap: 10px; /* Sets the gap between tags */
+}
+
+.tag {
+  padding: 3px 15px;
+  border-radius: 10px;
+  background-color: #ff6060;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: Montserrat;
+}
+
+.dropdown-container-logement {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.dropdown-container-logement .dropdown {
+  width: 50%;
+}
+.dropdown-container-logement .dropdown-content.open {
+  height: 180px;
+  padding: 10px;
+  transition: height 0.3s ease-in;
+}
+
+.img-logement {
+  position: relative;
+  border-radius: 25px;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+.img-logement .svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 70px;
+  overflow: visible;
+  vertical-align: -0.125em;
+}

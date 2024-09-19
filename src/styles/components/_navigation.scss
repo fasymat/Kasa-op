@@ -5,7 +5,7 @@
   .nav {
     display: flex;
     justify-content: space-between;
-  
+
     a {
       text-decoration: none;
       margin: 10px;
@@ -20,16 +20,22 @@
         }
       }
     }
-     
+
     .menu {
       display: flex;
+      height: 45px;
     }
 
     .logo {
       display: flex;
       justify-content: flex-start;
     }
-  }}
-   
+  }
+}
 
-  
+.menu .nav-active {
+  /* Target the active link using the nav-active class */
+  border-bottom: 2px solid black;
+  transition: border-bottom 0.5s;
+  transition-timing-function: ease-in;
+}
