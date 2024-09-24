@@ -13,19 +13,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 const LogementDetails = () => {
   const { id } = useParams();
-  const [currentIndex, setCurrentIndex] = useState(
-    cardsData.findIndex((item) => item.id === id)
-  );
-  const logement = cardsData[currentIndex];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const logement = cardsData[cardsData.findIndex((item) => item.id === id)];
 
   const handlePrev = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + cardsData.length) % cardsData.length
+      (prevIndex) =>
+        (prevIndex - 1 + logement.pictures.length) % logement.pictures.length
     );
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % cardsData.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % logement.pictures.length);
   };
 
   if (!logement) {
@@ -39,7 +38,7 @@ const LogementDetails = () => {
         <div className="img-logement">
           <img
             className="img-logement"
-            src={logement.cover}
+            src={logement.pictures[currentIndex]}
             alt={logement.title}
           />
           <button className="prev-btn" onClick={handlePrev}>
