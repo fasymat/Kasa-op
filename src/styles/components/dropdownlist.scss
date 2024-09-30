@@ -7,7 +7,12 @@
 .dropdown {
   margin-bottom: 20px;
 }
-
+.chevron-icon {
+  transition: transform 0.3s ease-in-out;
+}
+.chevron-icon.rotate {
+  transform: rotate(-180deg);
+}
 .dropdown-header {
   background-color: #ff6060;
   color: white;
@@ -33,13 +38,6 @@
   height: 100px;
   padding: 10px;
   transition: height 0.3s ease-in;
-}
-.dropdown-header .svg-inline--fa {
-  transition: transform 1s ease;
-}
-
-.dropdown-header:hover .svg-inline--fa {
-  transform: scale(1.2);
 }
 
 .equipment-list {
