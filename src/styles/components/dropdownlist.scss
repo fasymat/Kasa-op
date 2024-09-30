@@ -8,11 +8,14 @@
   margin-bottom: 20px;
 }
 .chevron-icon {
+  height: 32px;
+  width: 32px;
   transition: transform 0.3s ease-in-out;
 }
 .chevron-icon.rotate {
-  transform: rotate(-180deg);
+  transform: rotate(180deg);
 }
+
 .dropdown-header {
   background-color: #ff6060;
   color: white;

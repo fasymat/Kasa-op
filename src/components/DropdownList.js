@@ -10,7 +10,7 @@ const DropdownList = ({ title, content }) => {
       <div className="dropdown-header" onClick={() => setIsOpen(!isOpen)}>
         <h3>{title}</h3>
         <FontAwesomeIcon
-          icon={isOpen ? faChevronUp : faChevronDown}
+          icon={faChevronUp}
           className={`chevron-icon ${isOpen ? "rotate" : ""}`}
         />
       </div>
