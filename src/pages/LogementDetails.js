@@ -4,7 +4,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import cardsData from "../logements.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, farStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import DropdownList from "../components/DropdownList";
 import Error404 from "../pages/Error404";
 import {
@@ -30,7 +30,7 @@ const LogementDetails = () => {
   if (!logement) {
     return <Error404 />;
   }
-  //renvoyer a la page si pas bon id
+
   return (
     <div className="content">
       <Navigation />
@@ -70,7 +70,11 @@ const LogementDetails = () => {
                   </span>
                 ))}
               </p>
-              <img className="host-picture" src={logement.host.picture} />
+              <img
+                className="host-picture"
+                src={logement.host.picture}
+                alt="host"
+              />
             </div>
             <div className="rating">
               {[...Array(5)].map((_, index) => (
